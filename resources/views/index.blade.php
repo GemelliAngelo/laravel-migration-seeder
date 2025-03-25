@@ -11,34 +11,40 @@
 </head>
 <body>
     <div class="container">
-        <h1>HELLO WORLD!</h1>
-
+<h1 class="my-5">Treni Odierni</h1>
+        <div class="row row-cols-4 g-4 my-5">
+            
         @foreach ($trains as $train)
-            <ul>
-                <li>{{$train["company"]}}</li>
-                <li>{{$train["station_of_departure"]}}</li>
-                <li>{{$train["station_of_arrival"]}}</li>
-                <li>{{$train["departure_time"]}}</li>
-                <li>{{$train["arrival_time"]}}</li>
-                <li>{{$train["train_code"]}}</li>
-                <li>{{$train["number_of_carriage"]}}</li>
+        <div class="col">
+
+            <ul class="list-group">
+                <li class="list-group-item">{{$train["company"]}}</li>
+                <li class="list-group-item">{{$train["station_of_departure"]}}</li>
+                <li class="list-group-item">{{$train["station_of_arrival"]}}</li>
+                <li class="list-group-item">{{$train["departure_time"]}}</li>
+                <li class="list-group-item">{{$train["arrival_time"]}}</li>
+                <li class="list-group-item">{{$train["train_code"]}}</li>
+                <li class="list-group-item">{{$train["number_of_carriage"]}}</li>
                     @if (!$train["on_time"])
-                        <li>
+                        <li class="list-group-item bg-warning">
                             In Ritardo
                         </li>
 
                     @else
-                        <li>
+                        <li class="list-group-item">
                             In Orario
                         </li>
                     @endif
                     @if ($train["is_deleted"])
-                        <li>
+                        <li class="list-group-item bg-danger">
                             Cancellato
                         </li>
                     @endif
             </ul>    
+        </div>
+
         @endforeach
+    </div>
     </div>
     
 </body>
